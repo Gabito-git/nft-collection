@@ -7,14 +7,14 @@
 
 require('dotenv').config();
 
-// const METADATA_URL = process.env.METADATA_URL;
+const METADATA_URL = process.env.METADATA_URL;
 const WHITELIST_CONTRACT_ADDRESS = process.env.WHITELIST_CONTRACT_ADDRESS;
 
 async function main() {
 
   const CryptoDevs = await hre.ethers.getContractFactory("CryptoDevs");
   const cryptoDevs = await CryptoDevs.deploy(
-    "",
+    METADATA_URL,
     WHITELIST_CONTRACT_ADDRESS
   );
 
